@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación: Pancreatitis Aguda Biliar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            background-color: #eef2f9;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            transform: scale(0.95);
+            background: #eef2f9;
+        }
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        .slide-content {
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            max-height: 750px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 2.5rem 3.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+        }
+        .slide-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1e3a8a; /* Azul oscuro */
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .nav-button {
+            position: fixed;
+            bottom: 2rem;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .nav-button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-3px);
+        }
+        #prevBtn {
+            right: 8rem;
+        }
+        #nextBtn {
+            right: 2rem;
+        }
+        #slideCounter {
+            position: fixed;
+            bottom: 2.5rem;
+            left: 2rem;
+            font-size: 1rem;
+            color: #4a5568;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        ul { list-style-position: inside; }
+        li { margin-bottom: 0.75rem; }
+        strong { color: #1e3a8a; }
+        .accent { color: #3b82f6; }
+        .danger { color: #dc2626; }
+        .success { color: #16a34a; }
+        .citation {
+            font-size: 0.7rem;
+            color: #6b7280;
+            position: absolute;
+            bottom: 1.5rem;
+            left: 3.5rem;
+            font-style: italic;
+        }
+        .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #9ca3af;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #6b7280;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+        <div class="slide-content justify-between items-center text-center">
+            <div class="self-start">
+                <div class="logo-placeholder">
+                    <span>Espacio para<br/>Logo ISSSTE</span>
+                </div>
+            </div>
+            <div>
+                <h1 class="text-5xl font-bold text-gray-800 mb-4">Pancreatitis Aguda Biliar</h1>
+                <p class="text-3xl text-blue-700 font-semibold mb-8">Presentación y Discusión de Caso Clínico</p>
+            </div>
+            <div class="text-right self-end w-full">
+                <p class="text-xl text-gray-700">Presenta: MPSS. Brandon José Argüelles Armenta</p>
+                <p class="text-lg text-gray-600 mt-1">Hospital General de Zona, ISSSTE</p>
+                <p class="text-md text-gray-500 mt-1">Jueves, 2 de Octubre de 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SECCIÓN I: CASO CLÍNICO ===== -->
+
+    <!-- Slide 2: Ficha y Motivo -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-vcard" viewBox="0 0 16 16"><path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"/><path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96q.04-.245.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 1 1 12z"/></svg>
+                Presentación del Caso
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-gray-700 mt-4">
+                <div>
+                    <h3 class="font-semibold text-xl text-gray-800 mb-3 border-b pb-2">Ficha de Identificación</h3>
+                    <ul class="list-disc space-y-2 pl-5">
+                        <li><strong>Nombre:</strong> R.M.D.</li>
+                        <li><strong>Edad:</strong> 55 años</li>
+                        <li><strong>Género:</strong> Femenino</li>
+                        <li><strong>Residencia:</strong> Puerto Vallarta, Jalisco</li>
+                        <li><strong>Ocupación:</strong> Enfermera</li>
+                        <li><strong>Afiliación:</strong> ISSSTE</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl text-gray-800 mb-3 border-b pb-2">Motivo de Consulta</h3>
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg italic">
+                        <p>"Vengo porque tengo un dolor muy fuerte en la boca del estómago que se me va como cinturón para la espalda, ya vomité varias veces y no se me quita con nada."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 3: Antecedentes -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Antecedentes de Importancia</h2>
+            <div class="grid grid-cols-2 gap-8 text-base">
+                <div>
+                    <h3 class="font-semibold text-lg text-blue-800 mb-2">Heredofamiliares</h3>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Padre:</strong> Finado a los 70 años por IAM. Padecía DM2 e HTA.</li>
+                        <li><strong>Madre:</strong> Viva, 78 años. Padece de <strong class="accent">colelitiasis sintomática</strong> (colecistectomizada) e Hipotiroidismo.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg text-blue-800 mb-2">Personales Patológicos</h3>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Hipertensión Arterial Sistémica:</strong> 5 años de diagnóstico. Tto: Losartán 50 mg c/24h. Aparentemente controlada.</li>
+                        <li><strong>Dislipidemia:</strong> 3 años de diagnóstico. Tto: Atorvastatina 20 mg c/24h.</li>
+                        <li><strong>Quirúrgicos:</strong> Salpingoclasia hace 20 años.</li>
+                        <li>Resto negados.</li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="font-semibold text-lg text-blue-800 mb-2">Ginecoobstétricos</h3>
+                    <ul class="list-disc pl-5">
+                        <li>G:3, P:3, A:0. FUM: hace 5 años.</li>
+                        <li><strong class="accent">Multiparidad</strong> como factor de riesgo para patología biliar.</li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="font-semibold text-lg text-blue-800 mb-2">Personales No Patológicos</h3>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Dieta:</strong> Hipercalórica, rica en grasas saturadas y carbohidratos.</li>
+                        <li><strong>Toxicomanías:</strong> Negadas.</li>
+                        <li><strong>Alergias:</strong> Negadas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Padecimiento Actual -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Padecimiento Actual</h2>
+            <div class="flex gap-8 items-center">
+                <div class="w-2/3 text-lg text-gray-700 space-y-4">
+                    <p>Inicia su padecimiento hace 12 horas, de forma <strong class="accent">súbita</strong>, posterior a ingesta de alimentos colecistoquinéticos.</p>
+                    <p>Presenta dolor en <strong class="accent">epigastrio</strong>, de carácter <strong class="accent">transfictivo</strong>, irradiado "en cinturón" hacia espalda. Intensidad <strong class="danger">EVA 9/10</strong>.</p>
+                    <p>Se acompaña de <strong class="accent">náuseas y vómito</strong> en 3 ocasiones, de contenido gastro-biliar. Refiere además <strong class="accent">coluria</strong> desde la mañana.</p>
+                    <p>No mejora con analgésicos no esteroideos tomados en casa, motivo por el cual acude a urgencias.</p>
+                </div>
+                <div class="w-1/3">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 5: Exploración Física -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Exploración Física al Ingreso</h2>
+            <div class="grid grid-cols-2 gap-8 text-lg">
+                <div>
+                    <h3 class="font-semibold text-xl mb-3 text-gray-800">General</h3>
+                    <p>Paciente consciente, orientada, con <strong class="accent">facies álgica, diaforética</strong>. Posición antálgica. Hidratación regular. Leve <strong class="accent">ictericia escleral</strong>.</p>
+                    <h3 class="font-semibold text-xl mt-4 mb-3 text-gray-800">Signos Vitales</h3>
+                    <ul class="list-disc pl-5 text-red-600 font-semibold">
+                        <li>TA: 130/85 mmHg</li>
+                        <li>FC: 105 lpm</li>
+                        <li>FR: 22 rpm</li>
+                        <li>Temp: 38.2 °C</li>
+                        <li>SatO2: 96% (aire ambiente)</li>
+                    </ul>
+                     <p class="mt-2 text-red-600"><strong>Cumple 3/4 criterios de SIRS.</strong></p>
+                </div>
+                 <div>
+                    <h3 class="font-semibold text-xl mb-3 text-gray-800">Exploración Dirigida</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Cardiopulmonar:</strong> Ruidos cardiacos rítmicos, taquicárdicos. Campos pulmonares con hipoventilación en base izquierda.</li>
+                        <li><strong>Abdomen:</strong> Globoso a expensas de panículo adiposo, <strong class="accent">hipoperistalsis</strong>. Dolor exquisito a la palpación media y profunda en epigastrio e hipocondrio derecho. <strong class="danger">Signo de Murphy positivo</strong>. Sin datos de irritación peritoneal franca.</li>
+                        <li><strong>Extremidades:</strong> Llenado capilar de 2 segundos, pulsos presentes, sin edema.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 6: Abordaje Inicial -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Abordaje Inicial en Urgencias</h2>
+            <div class="grid grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="font-semibold text-xl mb-3 text-blue-800">Medidas Terapéuticas</h3>
+                    <ul class="list-disc text-lg space-y-3 pl-5">
+                        <li>Ayuno.</li>
+                        <li>Canalización con dos vías periféricas.</li>
+                        <li><strong class="success">Inicio de fluidoterapia con Sol. Hartmann</strong> 1000cc en carga, seguido de 150 ml/hr.</li>
+                        <li><strong class="success">Analgesia IV:</strong> Nalbufina 10 mg en bolo.</li>
+                        <li>Antiemético: Ondansetrón 8 mg IV.</li>
+                        <li>Sonda Foley para cuantificación de uresis horaria.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl mb-3 text-blue-800">Plan Diagnóstico</h3>
+                     <ul class="list-disc text-lg space-y-3 pl-5">
+                        <li><strong class="accent">Laboratorios:</strong> BH completa, QS de 6 elementos, PFH, Electrolitos séricos, Tiempos de coagulación, <strong class="danger">Amilasa y Lipasa séricas</strong>, PCR.</li>
+                        <li><strong class="accent">Gabinete:</strong> Ultrasonido de hígado y vías biliares, Tele de tórax.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 7: Resultados de Labs -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Resultados de Laboratorio</h2>
+            <div class="grid grid-cols-3 gap-6 text-lg">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-center mb-2">Biometría Hemática</h3>
+                    <ul class="list-none space-y-1">
+                        <li>Leucocitos: <strong class="danger">16,500/mm³</strong></li>
+                        <li>Neutrófilos: 85%</li>
+                        <li>Hemoglobina: 14.2 g/dL</li>
+                        <li>Hematocrito: <strong class="danger">46%</strong></li>
+                        <li>Plaquetas: 210,000/mm³</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-center mb-2">Enzimas Pancreáticas</h3>
+                    <ul class="list-none space-y-1">
+                        <li>Amilasa: <strong class="danger">717 U/L</strong> (VR <100)</li>
+                        <li>Lipasa: <strong class="danger">1405 U/L</strong> (VR <160)</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-center mb-2">Química y PFH</h3>
+                     <ul class="list-none space-y-1">
+                        <li>Glucosa: 188 mg/dL</li>
+                        <li>BUN: <strong class="danger">28 mg/dL</strong></li>
+                        <li>Creatinina: 0.9 mg/dL</li>
+                        <li>ALT: <strong class="danger">493 U/L</strong></li>
+                        <li>AST: 310 U/L</li>
+                        <li>BT: 2.5 mg/dL / BD: 1.8 mg/dL</li>
+                        <li>PCR: <strong class="danger">185 mg/L</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Resultados de Imagen -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Estudios de Gabinete</h2>
+            <div class="grid grid-cols-2 gap-8 items-center h-full">
+                <div class="text-center">
+                    <h3 class="font-semibold text-xl mb-3 text-gray-800">Ultrasonido Abdominal</h3>
+                    
+                    <ul class="list-disc text-left mt-4 text-lg space-y-2 pl-5">
+                        <li>Páncreas aumentado de tamaño, de ecogenicidad heterogénea.</li>
+                        <li><strong class="accent">Colédoco dilatado (9 mm).</strong></li>
+                        <li>Presencia de líquido libre peripancreático.</li>
+                        <li><strong class="danger">Vesícula biliar de paredes finas, alitiásica.</strong></li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <h3 class="font-semibold text-xl mb-3 text-gray-800">Radiografía de Tórax</h3>
+                    
+                    <ul class="list-disc text-left mt-4 text-lg space-y-2 pl-5">
+                        <li>Elevación de hemidiafragma izquierdo.</li>
+                        <li><strong class="accent">Derrame pleural laminar izquierdo.</strong> ("Signo centinela")</li>
+                        <li>Silueta cardiaca y resto sin alteraciones.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 9: Diagnósticos y Evolución -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Diagnósticos y Evolución Hospitalaria</h2>
+            <div>
+                <h3 class="font-semibold text-xl text-blue-800 mb-3">Diagnósticos de Ingreso</h3>
+                <ol class="list-decimal text-lg space-y-2 pl-5">
+                    <li><strong>Pancreatitis Aguda de Etiología Biliar Probable.</strong></li>
+                    <li><strong>Clasificación de Atlanta:</strong> Moderadamente Severa (por complicaciones locales).</li>
+                    <li><strong>Score BISAP al ingreso:</strong> 2 puntos (BUN >25, SIRS presente).</li>
+                    <li>Síndrome de Respuesta Inflamatoria Sistémica.</li>
+                    <li>Hipertensión Arterial Sistémica descontrolada.</li>
+                </ol>
+            </div>
+            <div class="mt-8">
+                <h3 class="font-semibold text-xl text-blue-800 mb-3">Evolución</h3>
+                 <p class="text-lg">Paciente ingresa a piso. Se indica TAC abdominal por persistencia de SIRS a las 48h, la cual confirma pancreatitis edematosa intersticial Balthazar C, <strong class="accent">sin evidencia de litiasis biliar</strong>. Presenta mejoría clínica gradual con manejo médico. Se interconsulta a Cirugía General quienes descartan manejo quirúrgico urgente (CPRE/Colecistectomía). Al 6º día de estancia, paciente asintomática, tolerando vía oral, solicita y firma <strong class="danger">alta voluntaria.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SECCIÓN II: DISCUSIÓN Y REVISIÓN ===== -->
+    
+    <!-- Slide 10: Transition -->
+    <div class="slide">
+        <div class="slide-content justify-center items-center text-center">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4">Discusión del Caso y Revisión del Tema</h1>
+            <div class="h-1.5 w-32 bg-blue-600 mx-auto my-8"></div>
+            <p class="text-2xl text-gray-600">Análisis basado en la evidencia actual</p>
+        </div>
+    </div>
+    
+    <!-- Slide 11: Diagnóstico Correcto? -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Análisis del Diagnóstico: ¿Cómo y Por Qué?</h2>
+            <h3 class="font-semibold text-xl text-gray-800 mb-4">Criterios Diagnósticos de Pancreatitis Aguda (Se requieren 2 de 3):</h3>
+            <div class="grid grid-cols-3 gap-4 text-center text-lg">
+                <div class="p-4 border-2 border-green-500 bg-green-50 rounded-lg">
+                    <p>1. Dolor abdominal característico.</p>
+                    <p class="font-bold text-green-700 mt-2">✓ CUMPLIDO</p>
+                </div>
+                <div class="p-4 border-2 border-green-500 bg-green-50 rounded-lg">
+                    <p>2. Lipasa o Amilasa >3 veces el LSN.</p>
+                     <p class="font-bold text-green-700 mt-2">✓ CUMPLIDO</p>
+                </div>
+                <div class="p-4 border-2 border-gray-300 bg-gray-50 rounded-lg">
+                    <p>3. Hallazgos característicos en imagen.</p>
+                    <p class="font-bold text-gray-600 mt-2">(No fue necesario)</p>
+                </div>
+            </div>
+             <div class="mt-8">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">Determinación de la Etiología Biliar: El Dilema del "Lito Ausente"</h3>
+                <p class="text-lg">A pesar de USG y TAC sin litos, la etiología biliar se establece por:</p>
+                <ul class="list-disc text-lg space-y-2 pl-5 mt-2">
+                    <li><strong class="success">ALT > 150 U/L (>3x LSN):</strong> Tiene un Valor Predictivo Positivo >95% para origen biliar. Es el dato bioquímico más fidedigno.</li>
+                    <li>La causa más común de pancreatitis (<~40%) es la biliar.</li>
+                    <li><strong class="accent">Hipótesis:</strong> Microlitiasis, lodo biliar o un lito que obstruyó transitoriamente y pasó al duodeno antes de los estudios de imagen.</li>
+                </ul>
+            </div>
+            <p class="citation">American College of Gastroenterology Guidelines: Management of Acute Pancreatitis (2024). Am J Gastroenterol.</p>
+        </div>
+    </div>
+    
+    <!-- Slide 12: Monitorización -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Monitorización: El Cambio de Paradigma</h2>
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold text-xl text-red-700 mb-3">¿Qué NO hacer?</h3>
+                    <p class="text-lg">Medir <strong class="danger">Amilasa y Lipasa de forma seriada</strong>. Su nivel NO se correlaciona con la severidad ni el pronóstico. Son útiles para el diagnóstico inicial y nada más.</p>
+                    <div class="mt-4 p-4 bg-red-50 rounded-lg">
+                        <p class="text-red-800"><strong>Área de Oportunidad:</strong> La práctica común de solicitar enzimas de control es innecesaria y no está soportada por la evidencia.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl text-green-700 mb-3">¿Qué SÍ hacer?</h3>
+                    <p class="text-lg">Monitorizar la respuesta a la reanimación y la inflamación sistémica con marcadores dinámicos:</p>
+                    <ul class="list-disc pl-5 mt-2 text-lg space-y-2">
+                        <li><strong class="success">BUN y Hematocrito:</strong> Su descenso en las primeras 24h indica una reanimación hídrica exitosa. Su persistencia elevada es un signo de mal pronóstico.</li>
+                        <li><strong class="success">PCR:</strong> Un valor >150 mg/L a las 48 horas predice un curso severo.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="citation">Vege SS, et al. American College of Gastroenterology Guidelines: Management of Acute Pancreatitis (2024). Am J Gastroenterol.</p>
+        </div>
+    </div>
+
+    <!-- Slide 13: Fluidoterapia -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Manejo - Pilar 1: Fluidoterapia</h2>
+            <div class="flex gap-8 items-center">
+                <div class="w-1/2">
+                    
+                </div>
+                <div class="w-1/2 text-lg space-y-4">
+                    <h3 class="font-semibold text-xl text-blue-800">¿Qué fluido? <strong class="success">Cristaloides Balanceados</strong></h3>
+                    <p>La guía ACG 2024 recomienda <strong class="success">Ringer Lactato</strong> sobre Solución Salina. Múltiples meta-análisis demuestran que atenúa la respuesta inflamatoria (↓SIRS, ↓PCR) y reduce el riesgo de pancreatitis severa.</p>
+
+                    <h3 class="font-semibold text-xl text-blue-800 mt-4">¿A qué ritmo? <strong class="success">Terapia Dirigida por Metas</strong></h3>
+                    <p>Se abandona la "reanimación agresiva". El enfoque actual es una infusión de 5-10 ml/kg/h, ajustada para alcanzar metas.</p>
+                    
+                    <div class="p-4 bg-green-50 rounded-lg">
+                        <strong>Análisis del Caso:</strong> El uso de Solución Hartmann (Ringer Lactato) fue una <strong class="success">decisión acertada</strong> y alineada con la mejor evidencia disponible.
+                    </div>
+                </div>
+            </div>
+            <p class="citation">Di Martino, V., et al. (2023). Lactated Ringer's Solution... A Systematic Review and Meta-Analysis. J. Clin. Med.</p>
+        </div>
+    </div>
+
+    <!-- Slide 14: Nutrición -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Manejo - Pilar 2: Soporte Nutricional</h2>
+            <div class="text-center">
+                <h3 class="text-3xl font-bold text-gray-800">"Si el intestino funciona, ¡úsalo!"</h3>
+                <p class="text-xl text-gray-600 mt-2">El paradigma del "reposo pancreático" prolongado ha sido refutado.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-8 mt-8 text-lg">
+                <div class="p-6 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-xl text-blue-800 mb-3">Recomendación Actual</h4>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>En pancreatitis leve-moderada, iniciar la vía oral <strong class="success">en las primeras 24-48 horas</strong>, una vez que las náuseas, vómito y dolor severo han cedido.</li>
+                        <li>Se puede iniciar directamente con una <strong class="success">dieta sólida, baja en grasas</strong>. No es necesaria la progresión escalonada (líquidos, papilla, etc.).</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-xl text-gray-800 mb-3">Beneficios Demostrados</h4>
+                     <ul class="list-disc pl-5 space-y-2">
+                        <li>Reduce la estancia hospitalaria.</li>
+                        <li>Disminuye el riesgo de complicaciones infecciosas.</li>
+                        <li>Mejora la barrera intestinal.</li>
+                     </ul>
+                </div>
+            </div>
+            <p class="citation">Pădureanu, V., et al. (2024). Early Versus Delayed Enteral Feeding... A Comprehensive Review. Diagnostics.</p>
+        </div>
+    </div>
+
+    <!-- Slide 15: Antibióticos -->
+    <div class="slide">
+        <div class="slide-content justify-center items-center text-center">
+            <h2 class="slide-title mx-auto">Manejo - Pilar 3: Antibióticos</h2>
+            
+            <h3 class="text-3xl font-bold text-red-700 mt-8">El uso de antibióticos PROFILÁCTICOS está CONTRAINDICADO</h3>
+            <p class="text-xl max-w-4xl mx-auto mt-4 text-gray-700">En pancreatitis edematosa intersticial o necrosis estéril, los antibióticos <strong class="danger">NO reducen</strong> la progresión a necrosis infectada ni la mortalidad. Sí aumentan el riesgo de resistencia bacteriana e infecciones fúngicas.</p>
+            <div class="mt-8 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-lg text-left text-lg">
+                <p><strong>Análisis del Caso:</strong> Se administró Ceftriaxona + Metronidazol de forma empírica. En ausencia de colangitis o una infección documentada, esta práctica <strong class="danger">no está justificada</strong> por las guías actuales y representa un área de oportunidad para mejorar la prescripción. </p>
+            </div>
+            <p class="citation">Yesilot, S., et al. (2024). The Role of Prophylactic Carbapenems... A Systematic Review and Meta-Analysis. Turk J Surg.</p>
+        </div>
+    </div>
+    
+    <!-- Slide 16: Causa Biliar -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Manejo - Pilar 4: Resolución de la Causa Biliar</h2>
+            <div class="grid grid-cols-2 gap-8 text-lg">
+                <div>
+                    <h3 class="font-semibold text-xl text-blue-800 mb-3">CPRE: ¿Cuándo?</h3>
+                     <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="success">Indicación estricta:</strong> Colangitis aguda concomitante.</li>
+                        <li>NO de forma rutinaria ni "profiláctica" en pancreatitis biliar sin colangitis.</li>
+                        <li><strong>Análisis del Caso:</strong> La decisión de diferir la CPRE fue <strong class="success">correcta</strong>.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl text-red-800 mb-3">Colecistectomía: ¿Cuándo?</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="danger">Indicación estricta:</strong> Durante la misma hospitalización, una vez resuelto el cuadro agudo.</li>
+                        <li>Diferir la cirugía expone al paciente a un riesgo de recurrencia de hasta el 30% en las siguientes semanas.</li>
+                        <li><strong>Análisis del Caso:</strong> El alta voluntaria sin colecistectomía es el <strong class="danger">punto más crítico y de mayor riesgo</strong> en el manejo de esta paciente.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="citation">Oprea, M. V., et al. (2024). Optimal Timing and Approach for Cholecystectomy... A Systematic Review. J. Clin. Med.</p>
+        </div>
+    </div>
+    
+     <!-- Slide 17: Complicaciones y Pronóstico -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Complicaciones y Factores Pronósticos</h2>
+            <div class="flex gap-8 items-start">
+                <div class="w-1/2 text-lg">
+                    <h3 class="font-semibold text-xl text-blue-800 mb-3">Complicaciones Potenciales</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Locales:</strong> Colecciones líquidas agudas, pseudoquistes, necrosis (estéril o infectada), trombosis vascular.</li>
+                        <li><strong>Sistémicas:</strong> Falla orgánica (respiratoria, renal, circulatoria), coagulopatía, desequilibrio metabólico.</li>
+                    </ul>
+                </div>
+                <div class="w-1/2 text-lg">
+                    <h3 class="font-semibold text-xl text-blue-800 mb-3">Nuevos Horizontes en Pronóstico</h3>
+                    <p>Más allá de los scores clásicos, la evidencia apunta a biomarcadores dinámicos.</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-2">
+                        <li>La persistencia de <strong class="accent">Procalcitonina elevada >72h</strong> es un fuerte predictor de desarrollo de necrosis infectada.</li>
+                        <li>Permite una vigilancia más estrecha y un uso más racional de la TAC y los antibióticos.</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-auto">
+                 
+            </div>
+            <p class="citation">Tarján, D., et al. (2024). Persistently High Procalcitonin... A Systematic Review and Meta-Analysis. Int. J. Mol. Sci.</p>
+        </div>
+    </div>
+
+    <!-- Slide 18: Conclusiones -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Conclusiones y Puntos Clave</h2>
+            <ul class="list-disc text-xl text-gray-800 space-y-4 pl-5">
+                <li>El diagnóstico de pancreatitis biliar es <strong class="accent">clínico y bioquímico (ALT >3x)</strong>; un estudio de imagen sin litos no la descarta.</li>
+                <li>La monitorización moderna se enfoca en <strong class="accent">BUN, Hto y PCR</strong>, no en la repetición de enzimas pancreáticas.</li>
+                <li>Los 4 pilares del manejo son: <strong class="success">1) Fluidoterapia con Ringer Lactato, 2) Nutrición oral temprana, 3) NO usar antibióticos profilácticos, y 4) Colecistectomía en la misma admisión.</strong></li>
+                <li>El alta de un paciente con pancreatitis biliar sin un plan definitivo para colecistectomía es una <strong class="danger">falla en la seguridad del paciente</strong> que lo expone a un riesgo inaceptable de recurrencia.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Slide 19: Bibliography -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Bibliografía Principal</h2>
+            <ol class="list-decimal text-base space-y-4 pl-5 mt-4">
+                <li><strong>Vege SS, et al.</strong> American College of Gastroenterology Guidelines: Management of Acute Pancreatitis. <em>Am J Gastroenterol.</em> 2024;119(3):395-414.</li>
+                <li><strong>Di Martino, V., et al.</strong> Lactated Ringer's Solution Is Associated with a Lower Risk of Developing Moderately Severe to Severe Acute Pancreatitis and Systemic Inflammatory Response Syndrome: A Systematic Review and Meta-Analysis. <em>J. Clin. Med.</em> 2023;12(13):4480.</li>
+                <li><strong>Pădureanu, V., et al.</strong> Early Versus Delayed Enteral Feeding in Acute Pancreatitis: A Comprehensive Review. <em>Diagnostics (Basel).</em> 2024;14(1):89.</li>
+                <li><strong>Oprea, M. V., et al.</strong> Optimal Timing and Approach for Cholecystectomy after Mild Biliary Pancreatitis: A Systematic Review. <em>J. Clin. Med.</em> 2024;13(4):1122.</li>
+                <li><strong>Tarján, D., et al.</strong> Persistently High Procalcitonin as a Predictor of Infected Pancreatic Necrosis in Acute Pancreatitis: A Systematic Review and Meta-Analysis. <em>Int. J. Mol. Sci.</em> 2024;25(3):1805.</li>
+            </ol>
+            <div class="mt-auto text-center">
+                <p class="text-4xl font-bold text-gray-800">Gracias</p>
+                <p class="text-2xl text-gray-600 mt-2">¿Preguntas?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div id="slideCounter"></div>
+    <button id="prevBtn" class="nav-button">&#8592;</button>
+    <button id="nextBtn" class="nav-button">&#8594;</button>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slideCounter');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+            prevBtn.style.display = index === 0 ? 'none' : 'flex';
+            nextBtn.style.display = index === slides.length - 1 ? 'none' : 'flex';
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
