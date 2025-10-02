@@ -390,36 +390,53 @@
     </div>
 
     <!-- Slide 8: Resultados de Imagen -->
+
+                               <!-- Slide 8: Estudios de Imagen Iniciales (USG a la Izquierda, RX a la Derecha) -->
     <div class="slide">
         <div class="slide-content">
-            <h2 class="slide-title">Estudios de Gabinete</h2>
-            <div class="grid grid-cols-2 gap-8 items-center h-full">
-                <div class="text-center">
-                    <h3 class="font-semibold text-xl mb-3 text-gray-800">Ultrasonido Abdominal</h3>
-<img src="https://www.sapd.es/rapd/image_revista/vol36_n4/imagenes/rev2_fig7.jpg" alt="USG" class="bg-white p-2 rounded-full">
-                    
-                    <ul class="list-disc text-left mt-4 text-lg space-y-2 pl-5">
-                        <li>Páncreas aumentado de tamaño, de ecogenicidad heterogénea.</li>
-                        <li><strong class="accent">Colédoco dilatado (9 mm).</strong></li>
-                        <li>Presencia de líquido libre peripancreático.</li>
-                        <li><strong class="danger">Vesícula biliar de paredes finas, alitiásica.</strong></li>
-                    </ul>
-                </div>
-                <div class="text-center">
-                    <h3 class="font-semibold text-xl mb-3 text-gray-800">Radiografía de Tórax</h3>
-                    <div class="flex-grow w-full h-full relative">
-<img src="img/RX.jpg" alt="USG" class="bg-white p-2 rounded-full" class="absolute top-0 left-0 w-full h-full object-contain>
+            <h2 class="slide-title">Estudios de Imagen Iniciales</h2>
+            <div class="grid grid-cols-2 gap-6 h-full">
+                
+                <!-- Columna Izquierda: Ultrasonido -->
+                <div class="flex flex-col space-y-4">
+                    <h3 class="font-semibold text-xl text-blue-800 text-center flex-shrink-0">Ultrasonido Abdominal</h3>
+                    <!-- Contenedor de Imagen USG -->
+                    <div class="flex-grow bg-black rounded-lg p-2 overflow-hidden relative">
+                        <img src="https://www.sapd.es/rapd/image_revista/vol36_n4/imagenes/rev2_fig7.jpg" alt="Ultrasonido abdominal de la paciente" class="absolute top-0 left-0 w-full h-full object-contain">
                     </div>
-                     <ul class="list-disc pl-5 text-lg space-y-2">
-                            <li>Patrón de <strong class="accent">íleo reflejo generalizado</strong>, con dilatación de asas de intestino delgado y colon.</li>
-                            <li>Presencia de <strong class="danger">"asa centinela"</strong> en cuadrante superior izquierdo (un asa de yeyuno dilatada y fija por la inflamación local).</li>
-                            <li>Posible signo del <strong class="danger">"colon cortado"</strong>, con ausencia de gas en el colon descendente debido al espasmo por la inflamación pancreática.</li>
+                    <!-- Hallazgos USG -->
+                    <div class="text-base">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Páncreas no visualizado adecuadamente por interposición de gas.</li>
+                            <li><strong class="success">Vesícula biliar alitiásica</strong>, de paredes finas y sin lodo.</li>
+                            <li>Vía biliar intra y extrahepática de calibre normal.</li>
+                            <li>Hígado y riñones sin alteraciones evidentes.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Radiografía -->
+                <div class="flex flex-col space-y-4">
+                    <h3 class="font-semibold text-xl text-blue-800 text-center flex-shrink-0">Radiografía Simple de Abdomen</h3>
+                    <!-- Contenedor de Imagen RX -->
+                    <div class="flex-grow bg-black rounded-lg p-2 overflow-hidden relative">
+                         <img src="img/RX.jpg" alt="Radiografía de abdomen de la paciente" class="absolute top-0 left-0 w-full h-full object-contain">
+                    </div>
+                    <!-- Hallazgos RX -->
+                    <div class="text-base">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Patrón de <strong class="accent">íleo reflejo generalizado</strong>, con dilatación de asas.</li>
+                            <li>Presencia de <strong class="danger">"asa centinela"</strong> en cuadrante superior izquierdo.</li>
+                            <li>Posible signo del <strong class="danger">"colon cortado"</strong> por espasmo inflamatorio.</li>
                             <li>Sin evidencia de neumoperitoneo o litos radiopacos.</li>
                         </ul>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
+                        
     
        <!-- Slide 9: Evolución Hospitalaria y TAC -->
     <div class="slide">
