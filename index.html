@@ -164,6 +164,9 @@
                     <ul class="list-disc space-y-2 pl-5">
                         <li><strong>Nombre:</strong> R.M.D.</li>
                         <li><strong>Edad:</strong> 55 años</li>
+                         <li><strong>Peso:</strong> 65 kilos</li>
+                         <li><strong>Talla:</strong> 1.65 metros</li>
+                         <li><strong>IMC:</strong> 23.88 kg/m2</li>
                         <li><strong>Género:</strong> Femenino</li>
                         <li><strong>Residencia:</strong> Puerto Vallarta, Jalisco</li>
                         <li><strong>Ocupación:</strong> Maestra</li>
@@ -257,13 +260,12 @@
                         <li>Temp: 38.2 °C</li>
                         <li>SatO2: 96% (aire ambiente)</li>
                     </ul>
-                     <p class="mt-2 text-red-600"><strong>Cumple 3/4 criterios de SIRS.</strong></p>
                 </div>
                  <div>
                     <h3 class="font-semibold text-xl mb-3 text-gray-800">Exploración Dirigida</h3>
                     <ul class="list-disc pl-5 space-y-2">
                         <li><strong>Cardiopulmonar:</strong> Ruidos cardiacos rítmicos, taquicárdicos. Campos pulmonares con hipoventilación en base izquierda.</li>
-                        <li><strong>Abdomen:</strong> Globoso a expensas de panículo adiposo, <strong class="accent">hipoperistalsis</strong>. Dolor a la palpación media y profunda en epigastrio e hipocondrio derecho. <strong class="danger">Signo de Murphy positivo</strong>. Sin datos de irritación peritoneal franca.</li>
+                        <li><strong>Abdomen:</strong> Blando, depresible, <strong class="accent">hipoperistalsis</strong>. Dolor a la palpación media y profunda en epigastrio e hipocondrio derecho. <strong class="danger">Signo de Murphy positivo</strong>. Sin datos de irritación peritoneal franca.</li>
                         <li><strong>Extremidades:</strong> Llenado capilar de 2 segundos, pulsos presentes, sin edema.</li>
                     </ul>
                 </div>
@@ -282,9 +284,11 @@
                         <li>Ayuno.</li>
                         <li>Canalización con dos vías periféricas.</li>
                         <li><strong class="success">Inicio de fluidoterapia con Sol. Hartmann</strong> 1000cc en carga, seguido de 150 ml/hr.</li>
-                        <li><strong class="success">Analgesia IV:</strong> Nalbufina 10 mg en bolo.</li>
+                        <li><strong class="success">Analgesia IV:</strong> Metamizol sódico 1 gramo cada 8 horas.</li>
+                         <li><strong class="success">Antibiotico IV:</strong> Levofloxacino 500 mg cada 24 horas</li>
                         <li>Antiemético: Ondansetrón 8 mg IV.</li>
-                        <li>Sonda Foley para cuantificación de uresis horaria.</li>
+                         <li>Inhibidor de bomba de protones: Omeprazol 20 mg IV.</li>
+
                     </ul>
                 </div>
                 <div>
@@ -299,12 +303,14 @@
     </div>
     
     <!-- Slide 7: Resultados de Labs -->
+     <!-- Slide 7: Resultados de Laboratorio (Versión Ampliada) -->
     <div class="slide">
         <div class="slide-content">
-            <h2 class="slide-title">Resultados de Laboratorio</h2>
-            <div class="grid grid-cols-3 gap-6 text-lg">
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <h3 class="font-semibold text-center mb-2">Biometría Hemática</h3>
+            <h2 class="slide-title">Resultados de Laboratorio al Ingreso</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-base h-full">
+                <!-- Columna 1: BH y Tiempos -->
+                <div class="bg-gray-50 p-3 rounded-lg flex flex-col">
+                    <h3 class="font-semibold text-center mb-2 text-blue-800">Biometría Hemática</h3>
                     <ul class="list-none space-y-1">
                         <li>Leucocitos: <strong class="danger">16,500/mm³</strong></li>
                         <li>Neutrófilos: 85%</li>
@@ -312,24 +318,72 @@
                         <li>Hematocrito: <strong class="danger">46%</strong></li>
                         <li>Plaquetas: 210,000/mm³</li>
                     </ul>
+                    <div class="mt-auto pt-4">
+                        <h3 class="font-semibold text-center mb-2 text-blue-800">Tiempos de Coagulación</h3>
+                        <ul class="list-none space-y-1">
+                            <li>TP: 12.5 seg</li>
+                            <li>INR: 1.1</li>
+                            <li>TTPa: 32 seg</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-blue-50 p-4 rounded-lg">
-                    <h3 class="font-semibold text-center mb-2">Enzimas Pancreáticas</h3>
+
+                <!-- Columna 2: Enzimas y Electrolitos -->
+                <div class="bg-blue-50 p-3 rounded-lg flex flex-col">
+                    <h3 class="font-semibold text-center mb-2 text-blue-800">Enzimas Pancreáticas</h3>
                     <ul class="list-none space-y-1">
                         <li>Amilasa: <strong class="danger">717 U/L</strong> (VR <100)</li>
                         <li>Lipasa: <strong class="danger">1405 U/L</strong> (VR <160)</li>
                     </ul>
+                    <div class="mt-auto pt-4">
+                         <h3 class="font-semibold text-center mb-2 text-blue-800">Electrolitos Séricos</h3>
+                        <ul class="list-none space-y-1">
+                            <li>Sodio: 136 mEq/L</li>
+                            <li>Potasio: <strong class="accent">3.4 mEq/L</strong></li>
+                            <li>Cloro: 95 mEq/L</li>
+                            <li>Calcio: <strong class="accent">8.2 mg/dL</strong></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <h3 class="font-semibold text-center mb-2">Química y PFH</h3>
+
+                <!-- Columna 3: Química y PFH -->
+                <div class="bg-gray-50 p-3 rounded-lg flex flex-col">
+                    <h3 class="font-semibold text-center mb-2 text-blue-800">Química y PFH</h3>
                      <ul class="list-none space-y-1">
                         <li>Glucosa: 188 mg/dL</li>
                         <li>BUN: <strong class="danger">28 mg/dL</strong></li>
                         <li>Creatinina: 0.9 mg/dL</li>
-                        <li>ALT: <strong class="danger">493 U/L</strong></li>
+                        <li>PCR: <strong class="danger">185 mg/L</strong></li>
+                        <li class="mt-2 border-t pt-1">ALT: <strong class="danger">493 U/L</strong></li>
                         <li>AST: 310 U/L</li>
-                        <li>BT: 2.5 mg/dL / BD: 1.8 mg/dL</li>
+                        <li>FA: 190 U/L</li>
+                        <li>GGT: 250 U/L</li>
+                        <li>BT: 2.5 mg/dL</li>
+                        <li>BD: 1.8 mg/dL</li>
                     </ul>
+                </div>
+                
+                <!-- Columna 4: EGO -->
+                <div class="bg-blue-50 p-3 rounded-lg flex flex-col">
+                    <h3 class="font-semibold text-center mb-2 text-blue-800">Examen General de Orina</h3>
+                    <div class="grid grid-cols-2 gap-x-2">
+                        <div>
+                            <p><strong>Color:</strong> Ámbar</p>
+                            <p><strong>Aspecto:</strong> L. Turbio</p>
+                            <p><strong>Densidad:</strong> <strong class="accent">1.025</strong></p>
+                            <p><strong>pH:</strong> 6.0</p>
+                        </div>
+                        <div>
+                            <p><strong>Proteínas:</strong> Neg</p>
+                            <p><strong>Glucosa:</strong> Neg</p>
+                            <p><strong>Cetonas:</strong> Neg</p>
+                            <p><strong>Bilirrubina:</strong> <strong class="danger">Neg</strong></p>
+                        </div>
+                    </div>
+                     <div class="mt-auto pt-4">
+                         <h4 class="font-semibold text-sm text-center border-t pt-2">Sedimento:</h4>
+                         <p class="text-center text-sm">Leucocitos 1-2/campo, Eritrocitos 0-1/campo, Células epiteliales escasas.</p>
+                     </div>
                 </div>
             </div>
         </div>
@@ -371,7 +425,7 @@
             <div class="grid grid-cols-2 gap-8 h-full">
                 <div class="text-lg space-y-3 flex flex-col">
                     <h3 class="font-semibold text-xl text-blue-800 mb-2">Manejo y Progresión</h3>
-                    <p><strong>Días 1-2:</strong> Se mantiene con fluidoterapia IV dirigida por metas (diuresis >0.5 ml/kg/h), analgesia y monitorización de BUN/Hto. Persiste con SIRS.</p>
+                    <p><strong>Días 1-2:</strong> Se mantiene con fluidoterapia IV dirigida por metas (diuresis >0.5 ml/kg/h), analgesia y monitorización de Amilasa y Lipasa sericas. Persiste con SIRS.</p>
                     <p><strong>Día 3:</strong> Presenta mejoría clínica notable del dolor, sin náuseas. Se decide <strong class="success">inicio de vía oral</strong>. Se comienza con dieta de líquidos claros, con excelente tolerancia, progresando a dieta blanda baja en grasas en las siguientes 12 horas.</p>
                     <p><strong>Día 4:</strong> Por persistencia de leucocitosis, se solicita <strong class="accent">TAC abdominal</strong> para descartar complicaciones locales (necrosis).</p>
                 </div>
@@ -379,7 +433,7 @@
                     <h3 class="font-semibold text-xl text-blue-800 mb-2">Tomografía Axial Computarizada</h3>
                     <div class="w-full bg-gray-200 rounded-lg flex items-center justify-center" style="height: 250px;">
                         <!-- Coloca aquí el enlace a tu imagen de la TAC -->
-                        <img src="img/TAC.jpg" alt="TAC Abdominal de la paciente" class="w-full h-full object-cover rounded-lg">
+                        <img src="img/TACo.jpg" alt="TAC Abdominal de la paciente" class="w-full h-full object-cover rounded-lg">
                     </div>
                     <ul class="list-disc text-sm space-y-1 pl-5 mt-2">
                         <li>Páncreas con aumento difuso de sus dimensiones.</li>
